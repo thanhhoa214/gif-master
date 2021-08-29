@@ -1,0 +1,9 @@
+<div class="flex flex-wrap justify-around space-x-2 space-y-2 p-6">
+  <div class="relative" *ngFor="let gif of gifs">
+    <img [src]="gif.images.fixed_height.url" [alt]="gif.title" (click)="selectGif.emit(gif.id)" />
+    <section *ngIf="gif.user as user" class="user-info">
+      <img [src]="user.avatar_url" [alt]="user.username" />
+      <section class="user-detail"><b>Author</b> {{ user.display_name }}</section>
+    </section>
+  </div>
+</div>

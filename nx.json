@@ -12,9 +12,10 @@
   },
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
+      "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
+        "accessToken": "OGFmMmQxNTgtNGUwMC00NzIzLThhNTctODU1NWNlMWU3M2Q5fHJlYWQtd3JpdGU="
       }
     }
   },
@@ -33,6 +34,27 @@
     "gif-master-e2e": {
       "tags": [],
       "implicitDependencies": ["gif-master"]
+    },
+    "gif-master-gif-views-data-access": {
+      "tags": ["scope:gif-master", "type:data-access"]
+    },
+    "gif-master-gif-views-feature": {
+      "tags": ["scope:gif-master", "type:feature"]
+    },
+    "gif-master-gif-views-ui": {
+      "tags": ["scope:gif-master", "type:ui"]
+    },
+    "shared-app-config": {
+      "tags": ["scope:shared", "type:util"]
+    },
+    "shared-language": {
+      "tags": ["scope:shared", "type:feature"]
+    },
+    "shared-state-management": {
+      "tags": ["scope:shared", "type:feature"]
+    },
+    "shared-util": {
+      "tags": ["scope:shared", "type:util"]
     }
   }
 }

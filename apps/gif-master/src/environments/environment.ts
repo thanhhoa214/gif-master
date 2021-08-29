@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  GIPHY_API_KEY: 'cMGsh1uDR8SId6aXrc2eQqUEGLVFXXrA'
 };
 
 /*

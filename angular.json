@@ -16,12 +16,20 @@
             "main": "apps/gif-master/src/main.ts",
             "polyfills": "apps/gif-master/src/polyfills.ts",
             "tsConfig": "apps/gif-master/tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
             "assets": [
               "apps/gif-master/src/favicon.ico",
-              "apps/gif-master/src/assets"
+              "apps/gif-master/src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/@taiga-ui/icons/src",
+                "output": "assets/taiga-ui/icons"
+              }
             ],
-            "styles": ["apps/gif-master/src/styles.scss"],
+            "styles": [
+              "apps/gif-master/src/styles.scss",
+              "node_modules/@taiga-ui/core/styles/taiga-ui-global.less",
+              "node_modules/@taiga-ui/core/styles/taiga-ui-theme.less"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -78,10 +86,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/gif-master/src/**/*.ts",
-              "apps/gif-master/src/**/*.html"
-            ]
+            "lintFilePatterns": ["apps/gif-master/src/**/*.ts", "apps/gif-master/src/**/*.html"]
           }
         },
         "test": {
@@ -119,9 +124,294 @@
           }
         }
       }
+    },
+    "gif-master-gif-views-data-access": {
+      "projectType": "library",
+      "root": "libs/gif-master/gif-views/data-access",
+      "sourceRoot": "libs/gif-master/gif-views/data-access/src",
+      "prefix": "gif-master",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/gif-master/gif-views/data-access"],
+          "options": {
+            "project": "libs/gif-master/gif-views/data-access/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/gif-master/gif-views/data-access/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/gif-master/gif-views/data-access/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/gif-master/gif-views/data-access"],
+          "options": {
+            "jestConfig": "libs/gif-master/gif-views/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/gif-master/gif-views/data-access/src/**/*.ts",
+              "libs/gif-master/gif-views/data-access/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "gif-master-gif-views-feature": {
+      "projectType": "library",
+      "root": "libs/gif-master/gif-views/feature",
+      "sourceRoot": "libs/gif-master/gif-views/feature/src",
+      "prefix": "gif-master",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/gif-master/gif-views/feature"],
+          "options": {
+            "project": "libs/gif-master/gif-views/feature/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/gif-master/gif-views/feature/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/gif-master/gif-views/feature/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/gif-master/gif-views/feature"],
+          "options": {
+            "jestConfig": "libs/gif-master/gif-views/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/gif-master/gif-views/feature/src/**/*.ts",
+              "libs/gif-master/gif-views/feature/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "gif-master-gif-views-ui": {
+      "projectType": "library",
+      "root": "libs/gif-master/gif-views/ui",
+      "sourceRoot": "libs/gif-master/gif-views/ui/src",
+      "prefix": "gif-master",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/gif-master/gif-views/ui"],
+          "options": {
+            "project": "libs/gif-master/gif-views/ui/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/gif-master/gif-views/ui/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/gif-master/gif-views/ui/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/gif-master/gif-views/ui"],
+          "options": {
+            "jestConfig": "libs/gif-master/gif-views/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/gif-master/gif-views/ui/src/**/*.ts",
+              "libs/gif-master/gif-views/ui/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "shared-app-config": {
+      "projectType": "library",
+      "root": "libs/shared/app-config",
+      "sourceRoot": "libs/shared/app-config/src",
+      "prefix": "gif-master",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/shared/app-config"],
+          "options": {
+            "project": "libs/shared/app-config/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/shared/app-config/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/shared/app-config/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/app-config"],
+          "options": {
+            "jestConfig": "libs/shared/app-config/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/app-config/src/**/*.ts",
+              "libs/shared/app-config/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "shared-language": {
+      "projectType": "library",
+      "root": "libs/shared/language",
+      "sourceRoot": "libs/shared/language/src",
+      "prefix": "gif-master",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/shared/language"],
+          "options": {
+            "project": "libs/shared/language/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/shared/language/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/shared/language/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/language"],
+          "options": {
+            "jestConfig": "libs/shared/language/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/language/src/**/*.ts",
+              "libs/shared/language/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "shared-state-management": {
+      "projectType": "library",
+      "root": "libs/shared/state-management",
+      "sourceRoot": "libs/shared/state-management/src",
+      "prefix": "gif-master",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/shared/state-management"],
+          "options": {
+            "project": "libs/shared/state-management/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/shared/state-management/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/shared/state-management/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/state-management"],
+          "options": {
+            "jestConfig": "libs/shared/state-management/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/state-management/src/**/*.ts",
+              "libs/shared/state-management/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "shared-util": {
+      "projectType": "library",
+      "root": "libs/shared/util",
+      "sourceRoot": "libs/shared/util/src",
+      "prefix": "gif-master",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/shared/util"],
+          "options": {
+            "project": "libs/shared/util/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/shared/util/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/shared/util/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/util"],
+          "options": {
+            "jestConfig": "libs/shared/util/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/util/src/**/*.ts", "libs/shared/util/src/**/*.html"]
+          }
+        }
+      }
     }
   },
   "cli": {
+    "analytics": "acb8692f-58f4-4b67-8cd9-af1c3774539b",
     "defaultCollection": "@nrwl/angular",
     "packageManager": "npm"
   },
@@ -146,7 +436,25 @@
     "@nrwl/angular:library": {
       "style": "scss",
       "linter": "eslint",
-      "unitTestRunner": "jest"
+      "unitTestRunner": "jest",
+      "strict": true,
+      "buildable": true,
+      "enableIvy": true,
+      "simpleModuleName": true
+    },
+    "@schematics/angular:component": {
+      "style": "scss",
+      "changeDetection": "OnPush",
+      "skipTests": true,
+      "export": true,
+      "displayBlock": true
+    },
+    "@schematics/angular:module": {
+      "style": "scss",
+      "changeDetection": "OnPush",
+      "skipTests": true,
+      "export": true,
+      "displayBlock": true
     },
     "@nrwl/angular:component": {
       "style": "scss"

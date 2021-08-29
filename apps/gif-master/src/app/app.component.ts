@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { AutoTitleService } from '@shared/util';
 
 @Component({
   selector: 'gif-master-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  template: '<tui-root><router-outlet></router-outlet></tui-root>',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
-  title = 'gif-master';
+  constructor(autoTitle: AutoTitleService) {
+    autoTitle.setupAutoTitleListener();
+  }
 }
