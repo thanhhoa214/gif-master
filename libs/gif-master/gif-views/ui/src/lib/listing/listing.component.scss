@@ -3,7 +3,7 @@
 }
 
 .relative {
-  @apply hover:z-20 hover:drop-shadow-2xl hover:scale-125 #{!important};
+  @apply hover:z-20 hover:drop-shadow-2xl hover:scale-110 #{!important};
   @apply border rounded-lg cursor-pointer overflow-hidden;
   min-width: 7rem;
 
@@ -12,7 +12,7 @@
   }
 
   section.user-info {
-    @apply absolute top-2 left-2 flex flex-col;
+    @apply absolute top-2 left-2 flex flex-col w-full;
 
     img {
       @apply w-12 h-12 rounded-full border p-1;
@@ -23,8 +23,13 @@
     }
 
     .user-detail {
-      @apply hidden text-xs bg-gray-200 bg-opacity-90;
+      @apply hidden bg-gray-200 bg-opacity-90;
       @apply mt-1 py-1 px-2 rounded-lg;
+      max-width: 75%;
+
+      small {
+        line-height: 1.25;
+      }
     }
   }
 }

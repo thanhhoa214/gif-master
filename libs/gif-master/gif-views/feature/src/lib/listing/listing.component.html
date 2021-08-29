@@ -1,1 +1,6 @@
-<gif-master-listing [gifs]="(gifs$ | async)?.data || []"></gif-master-listing> Hello
+<gif-master-listing
+  [searchValue]="searchValue$ | async"
+  [gifs]="(gifs$ | async)?.data || []"
+  (search)="searchGifs($event)"
+  (selectGif)="openDetailById($event)"
+></gif-master-listing>

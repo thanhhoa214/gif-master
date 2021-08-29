@@ -1,4 +1,5 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
+import { GIFObject } from 'giphy-api';
 
 @Component({
   selector: 'gif-master-detail',
@@ -6,11 +7,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./detail.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DetailComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class DetailComponent {
+  @Input() gif: GIFObject | undefined | null;
+  @Output() copyLink = new EventEmitter<string>();
 }
