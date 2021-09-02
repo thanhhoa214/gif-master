@@ -1,0 +1,11 @@
+:host {
+  display: block;
+}
+
+img.flag {
+  @apply w-8 h-8 grayscale hover:grayscale-0 cursor-pointer;
+  &.active {
+    @apply w-10 h-10 border-2 border-solid border-green-600 rounded-full p-1;
+    @apply filter grayscale-0;
+  }
+}

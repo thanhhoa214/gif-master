@@ -1,6 +1,6 @@
 <ng-container *ngIf="gif; else loading">
   <h2 class="text-2xl mb-4 relative">
-    <div class="w-4/5 mx-auto text-center capitalize">{{ gif.title }}</div>
+    <div class="w-4/5 mx-auto text-center capitalize min-h-[1.5rem]">{{ gif.title }}</div>
     <div class="absolute top-1/2 right-0 -translate-y-1/2">
       <button
         tuiIconButton
@@ -12,7 +12,7 @@
       ></button>
     </div>
   </h2>
-  <img [src]="gif.images.original.url" [alt]="gif.title" class="w-full rounded-lg" />
+  <img [src]="gif.images.original.url" [alt]="gif.title" class="center-image" />
   <section class="flex justify-between">
     <section *ngIf="gif.user as user" class="flex items-center my-2 space-x-2">
       <img
@@ -22,7 +22,9 @@
         class="rounded-full w-14 h-14"
       />
       <section class="flex flex-col">
-        <small class="text-gray-500 leading-6">Author</small>
+        <small class="text-gray-500 leading-6">{{
+          'gif_views_ui_detail.author' | transloco
+        }}</small>
         <b class="leading-3">{{ user.display_name }}</b>
         <a [href]="user.profile_url" target="_blank" class="hover:text-green-600"
           >@{{ user.username }}</a
@@ -30,8 +32,8 @@
       </section>
     </section>
     <section class="my-2">
-      <span class="text-gray-500">Uploaded at </span>
-      {{ gif.import_datetime | date }}
+      <span class="text-gray-500">{{ 'gif_views_ui_detail.uploadedAt' | transloco }}</span>
+      {{ gif.import_datetime | date: 'dd/MM/yyyy' }}
     </section>
   </section>
 </ng-container>

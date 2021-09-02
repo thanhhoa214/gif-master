@@ -2,3 +2,11 @@
   display: block;
   @apply w-full;
 }
+
+.center-image {
+  @apply rounded-lg mx-auto;
+  max-height: calc(100vh - 7rem);
+}
+tui-loader {
+  min-height: 20rem;
+}

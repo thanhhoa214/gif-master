@@ -1,0 +1,45 @@
+<nav
+  class="bg-gray-50 dark:bg-gray-800 dark:text-gray-50 py-2 flex items-center justify-between"
+  *ngIf="language$ | async as language"
+>
+  <div class="flex items-center">
+    <img
+      class="h-12 pl-5 flex-shrink-0 cursor-pointer"
+      src="assets/images/logo.png"
+      alt="Workflow"
+      routerLink="/"
+    />
+    <b class="text-lg mr-3">PI.EXCHANGE</b>
+    <a
+      tuiButton
+      appearance="primary"
+      size="m"
+      class="mr-2"
+      href="https://linkedin.com/in/thanhhoa214"
+      target="_blank"
+    >
+      My Linkedin
+    </a>
+    <a tuiButton appearance="outline" size="m" icon="tuiIconStarLarge"> Download my CV </a>
+  </div>
+  <div class="flex items-center justify-end px-4 space-x-2">
+    <tui-toggle size="l" [formControl]="darkModeControl"></tui-toggle>
+    <span>{{ 'navbar.language' | transloco }}</span>
+    <img
+      src="assets/images/vietnam-flag.svg"
+      alt="Viet Nam Flag"
+      class="flag"
+      [class.active]="language === 'vi'"
+      (click)="changeLanguage('vi')"
+      title="Sử dụng Tiếng Việt"
+    />
+    <img
+      src="assets/images/uk-flag.svg"
+      alt="Viet Nam Flag"
+      class="flag"
+      [class.active]="language === 'en'"
+      (click)="changeLanguage('en')"
+      title="Using English"
+    />
+  </div>
+</nav>

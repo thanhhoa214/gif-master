@@ -18,7 +18,9 @@
       "@gif-master/gif-views/data-access": ["libs/gif-master/gif-views/data-access/src/index.ts"],
       "@gif-master/gif-views/feature": ["libs/gif-master/gif-views/feature/src/index.ts"],
       "@gif-master/gif-views/ui": ["libs/gif-master/gif-views/ui/src/index.ts"],
+      "@gif-master/ui": ["libs/gif-master/ui/src/index.ts"],
       "@shared/app-config": ["libs/shared/app-config/src/index.ts"],
+      "@shared/dark-mode": ["libs/shared/dark-mode/src/index.ts"],
       "@shared/language": ["libs/shared/language/src/index.ts"],
       "@shared/state-management": ["libs/shared/state-management/src/index.ts"],
       "@shared/util": ["libs/shared/util/src/index.ts"]

@@ -3,15 +3,15 @@ import { Component, OnInit, ChangeDetectionStrategy, Injector } from '@angular/c
 import { ActivatedRoute } from '@angular/router';
 import {
   GifViewsState,
-  LoadGifById,
   LoadTrendingGifs,
   SearchGifsByName
 } from '@gif-master/gif-views/data-access';
 import { Store } from '@ngxs/store';
-import { map } from 'rxjs/operators';
+import { map, filter } from 'rxjs/operators';
 import { TuiDialogService } from '@taiga-ui/core';
 import { PolymorpheusComponent } from '@tinkoff/ng-polymorpheus';
-
+import { HttpParams } from '@angular/common/http';
+import { Location } from '@angular/common';
 @Component({
   templateUrl: './listing.component.html',
   styleUrls: ['./listing.component.scss'],
@@ -25,15 +25,21 @@ export class ListingComponent implements OnInit {
     private store: Store,
     private activatedRoute: ActivatedRoute,
     private injector: Injector,
-    private dialogService: TuiDialogService
+    private dialogService: TuiDialogService,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
-    this.store.dispatch(new LoadTrendingGifs({ limit: 20, rating: 'y' }));
+    this.searchValue$
+      .pipe(filter((value) => !value))
+      .subscribe(() => this.store.dispatch(new LoadTrendingGifs({ limit: 22, rating: 'y' })));
   }
 
   searchGifs(value: string): void {
-    this.store.dispatch(new SearchGifsByName({ limit: 20, rating: 'y', q: value }));
+    if (value) this.store.dispatch(new SearchGifsByName({ limit: 22, rating: 'y', q: value }));
+    else this.store.dispatch(new LoadTrendingGifs({ limit: 22, rating: 'y' }));
+    const params = new HttpParams().append('q', value);
+    this.location.replaceState(location.pathname, params.toString());
   }
 
   openDetailById(id: string): void {

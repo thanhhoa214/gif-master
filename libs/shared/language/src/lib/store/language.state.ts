@@ -11,7 +11,7 @@ import { LoadLanguage } from './language.actions';
 @Injectable()
 export class LanguageState implements NgxsOnInit {
   @Selector()
-  static getLanguage({ language }: LanguageStateModel) {
+  static language({ language }: LanguageStateModel) {
     return language;
   }
 

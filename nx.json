@@ -44,8 +44,14 @@
     "gif-master-gif-views-ui": {
       "tags": ["scope:gif-master", "type:ui"]
     },
+    "gif-master-ui": {
+      "tags": ["scope:gif-master", "type:ui"]
+    },
     "shared-app-config": {
       "tags": ["scope:shared", "type:util"]
+    },
+    "shared-dark-mode": {
+      "tags": ["scope:shared", "type:data-access"]
     },
     "shared-language": {
       "tags": ["scope:shared", "type:feature"]

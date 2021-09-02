@@ -253,6 +253,47 @@
         }
       }
     },
+    "gif-master-ui": {
+      "projectType": "library",
+      "root": "libs/gif-master/ui",
+      "sourceRoot": "libs/gif-master/ui/src",
+      "prefix": "gif-master",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/gif-master/ui"],
+          "options": {
+            "project": "libs/gif-master/ui/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/gif-master/ui/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/gif-master/ui/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/gif-master/ui"],
+          "options": {
+            "jestConfig": "libs/gif-master/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/gif-master/ui/src/**/*.ts",
+              "libs/gif-master/ui/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "shared-app-config": {
       "projectType": "library",
       "root": "libs/shared/app-config",
@@ -289,6 +330,47 @@
             "lintFilePatterns": [
               "libs/shared/app-config/src/**/*.ts",
               "libs/shared/app-config/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "shared-dark-mode": {
+      "projectType": "library",
+      "root": "libs/shared/dark-mode",
+      "sourceRoot": "libs/shared/dark-mode/src",
+      "prefix": "gif-master",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/shared/dark-mode"],
+          "options": {
+            "project": "libs/shared/dark-mode/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/shared/dark-mode/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/shared/dark-mode/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/dark-mode"],
+          "options": {
+            "jestConfig": "libs/shared/dark-mode/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/dark-mode/src/**/*.ts",
+              "libs/shared/dark-mode/src/**/*.html"
             ]
           }
         }

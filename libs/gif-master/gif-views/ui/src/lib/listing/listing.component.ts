@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { GIFObject } from 'giphy-api';
-import { distinctUntilChanged, throttleTime } from 'rxjs/operators';
+import { distinctUntilChanged, debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'gif-master-listing',
@@ -14,11 +14,11 @@ export class ListingComponent {
 
   @Input() gifs: GIFObject[] = [];
   @Input() set searchValue(value: string) {
-    this.searchControl.setValue(value);
+    if (value) this.searchControl.setValue(value);
   }
   @Output() search = this.searchControl.valueChanges.pipe(
     distinctUntilChanged(),
-    throttleTime(350)
+    debounceTime(350)
   );
   @Output() selectGif = new EventEmitter<string>();
 }

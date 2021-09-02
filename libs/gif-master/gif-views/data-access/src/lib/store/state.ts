@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
 import { STATE_NAME, INITIAL_STATE, StateModel } from './state.model';
 import { Action, State, StateContext, Selector } from '@ngxs/store';
-import { LoadTrendingGifs, SearchGifsByName, LoadGifById } from './actions';
+import { LoadTrendingGifs, SearchGifsByName, LoadGifById, ClearSelectedGif } from './actions';
 import { AppConfig, APP_CONFIG } from '@shared/app-config';
 import * as giphyApi from 'giphy-api';
 import { from } from 'rxjs';
@@ -46,5 +46,10 @@ export class GifViewsState {
     return from(
       giphyApi({ apiKey: this.appConfig.GIPHY_API_KEY, https: true }).search(params)
     ).pipe(tap((gifs) => patchState({ gifs })));
+  }
+
+  @Action(ClearSelectedGif)
+  ClearSelectedGif({ patchState }: StateContext<StateModel>) {
+    patchState({ selectedGif: undefined });
   }
 }

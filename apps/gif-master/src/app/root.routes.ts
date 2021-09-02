@@ -1,7 +1,14 @@
 import { gifViewsRoutes } from '@gif-master/gif-views/feature';
 import { Routes } from '@angular/router';
+import { LayoutComponent } from '@gif-master/ui';
 
 export const rootRoutes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'view-gifs' },
-  { path: 'view-gifs', children: [...gifViewsRoutes] }
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      { path: 'view-gifs', children: [...gifViewsRoutes] },
+      { path: '', pathMatch: 'full', redirectTo: 'view-gifs' }
+    ]
+  }
 ];

@@ -17,7 +17,8 @@ import { RouterModule } from '@angular/router';
 import { rootRoutes } from './root.routes';
 import { StateManagementModulesWithConfig } from '@shared/state-management';
 import { LanguageModuleWithConfig } from '@shared/language';
-
+import { LayoutModule } from '@gif-master/ui';
+import { DarkModeModule } from '@shared/dark-mode';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -26,10 +27,12 @@ import { LanguageModuleWithConfig } from '@shared/language';
     HttpClientModule,
     StateManagementModulesWithConfig(environment),
     LanguageModuleWithConfig({ prodMode: environment.production }),
+    DarkModeModule,
     RouterModule.forRoot(rootRoutes),
     TuiRootModule,
     TuiDialogModule,
-    TuiNotificationsModule
+    TuiNotificationsModule,
+    LayoutModule
   ],
   bootstrap: [AppComponent],
   providers: [

@@ -2,9 +2,9 @@
   display: block;
 }
 
-.relative {
+.gif-card {
+  @apply relative border rounded-lg cursor-pointer overflow-hidden;
   @apply hover:z-20 hover:drop-shadow-2xl hover:scale-110 #{!important};
-  @apply border rounded-lg cursor-pointer overflow-hidden;
   min-width: 7rem;
 
   img {
