@@ -19,6 +19,8 @@ import { StateManagementModulesWithConfig } from '@shared/state-management';
 import { LanguageModuleWithConfig } from '@shared/language';
 import { LayoutModule } from '@gif-master/ui';
 import { DarkModeModule } from '@shared/dark-mode';
+import { FacebookModule } from 'ngx-facebook';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -32,7 +34,8 @@ import { DarkModeModule } from '@shared/dark-mode';
     TuiRootModule,
     TuiDialogModule,
     TuiNotificationsModule,
-    LayoutModule
+    LayoutModule,
+    FacebookModule.forRoot()
   ],
   bootstrap: [AppComponent],
   providers: [

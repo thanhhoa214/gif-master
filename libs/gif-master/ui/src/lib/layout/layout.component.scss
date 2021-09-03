@@ -1,3 +1,6 @@
 :host {
-  display: block;
+  @apply flex flex-col dark:bg-gray-700 dark:text-gray-50;
+}
+gif-master-navbar {
+  @apply sticky top-0 left-0 z-50;
 }

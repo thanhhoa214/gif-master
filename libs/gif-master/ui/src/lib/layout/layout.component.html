@@ -1,10 +1,6 @@
-<div class="flex flex-col !min-h-screen dark:bg-gray-700 dark:text-gray-50">
-  <section class="flex-grow overflow-hidden">
-    <gif-master-navbar></gif-master-navbar>
-    <tui-scrollbar class="h-screen">
-      <main class="p-5">
-        <router-outlet></router-outlet>
-      </main>
-    </tui-scrollbar>
-  </section>
-</div>
+<gif-master-navbar></gif-master-navbar>
+<tui-scrollbar>
+  <main class="flex-grow p-5">
+    <router-outlet></router-outlet>
+  </main>
+</tui-scrollbar>

@@ -2,5 +2,6 @@
   [searchValue]="searchValue$ | async"
   [gifs]="(gifs$ | async)?.data || []"
   (search)="searchGifs($event)"
+  (loadMore)="loadMore($event)"
   (selectGif)="openDetailById($event)"
 ></gif-master-listing>

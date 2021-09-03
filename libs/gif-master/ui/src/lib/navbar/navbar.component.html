@@ -9,20 +9,34 @@
       alt="Workflow"
       routerLink="/"
     />
-    <b class="text-lg mr-3">PI.EXCHANGE</b>
+    <b class="text-lg mr-6">PI.EXCHANGE</b>
     <a
-      tuiButton
-      appearance="primary"
-      size="m"
-      class="mr-2"
+      class="mr-4 text-blue-500 hover:text-blue-700 dark:text-gray-50"
       href="https://linkedin.com/in/thanhhoa214"
       target="_blank"
+      [tuiHint]="'navbar.viewMyGithub' | transloco"
     >
-      My Linkedin
+      <tui-svg src="assets/images/linkedin.svg" class="w-8 h-8"></tui-svg>
     </a>
-    <a tuiButton appearance="outline" size="m" icon="tuiIconStarLarge"> Download my CV </a>
+    <a
+      class="mr-4 text-gray-600 hover:text-gray-900 dark:text-gray-50"
+      href="https://github.com/thanhhoa214"
+      target="_blank"
+      [tuiHint]="'navbar.viewMyGithub' | transloco"
+    >
+      <tui-svg src="assets/images/github.svg" class="w-8 h-8"></tui-svg>
+    </a>
+    <a
+      class="text-gray-600 hover:text-gray-900 dark:text-gray-50"
+      href="https://github.com/thanhhoa214"
+      target="_blank"
+      [tuiHint]="'navbar.downloadMyResume' | transloco"
+    >
+      <tui-svg src="tuiIconDownloadLarge" class="w-8 h-8"></tui-svg>
+    </a>
   </div>
   <div class="flex items-center justify-end px-4 space-x-2">
+    <span>{{ 'navbar.darkMode' | transloco }}</span>
     <tui-toggle size="l" [formControl]="darkModeControl"></tui-toggle>
     <span>{{ 'navbar.language' | transloco }}</span>
     <img

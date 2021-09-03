@@ -1,6 +1,5 @@
 import { STATE_NAME } from './state.model';
-import { TrendingOptions } from './giphy.model';
-import { SearchOptions } from 'giphy-api';
+import { BaseOptions, SearchOptions } from './giphy.model';
 
 export const ActionTypes = {
   LOAD_TRENDING_GIFS: `[${STATE_NAME}] Load trending gifs`,
@@ -11,7 +10,7 @@ export const ActionTypes = {
 
 export class LoadTrendingGifs {
   static readonly type = ActionTypes.LOAD_TRENDING_GIFS;
-  constructor(public readonly params?: TrendingOptions) {}
+  constructor(public readonly params?: BaseOptions, public readonly loadMore?: boolean) {}
 }
 
 export class LoadGifById {
@@ -21,7 +20,7 @@ export class LoadGifById {
 
 export class SearchGifsByName {
   static readonly type = ActionTypes.SEARCH_GIFS_BY_NAME;
-  constructor(public readonly params: SearchOptions) {}
+  constructor(public readonly params: SearchOptions, public readonly loadMore?: boolean) {}
 }
 
 export class ClearSelectedGif {

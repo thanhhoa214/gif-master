@@ -10,7 +10,6 @@ import {
 } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { ClipboardService } from 'ngx-clipboard';
-
 import { TuiDialog } from '@taiga-ui/cdk';
 import { POLYMORPHEUS_CONTEXT } from '@tinkoff/ng-polymorpheus';
 import {
@@ -20,6 +19,10 @@ import {
 } from '@taiga-ui/core';
 import { TRANSLOCO_SCOPE } from '@ngneat/transloco';
 import { loader } from './i18n/transloco.loader';
+import { FacebookService, UIParams } from 'ngx-facebook';
+import { from } from 'rxjs';
+import { catchError, switchMap } from 'rxjs/operators';
+
 @Component({
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.scss'],
@@ -40,7 +43,8 @@ export class DetailComponent implements OnInit, OnDestroy {
     @Inject(POLYMORPHEUS_CONTEXT)
     private context: TuiDialog<{ data: { id: string } }, void>,
     private clipboardService: ClipboardService,
-    private notificationService: TuiNotificationsService
+    private notificationService: TuiNotificationsService,
+    private fbService: FacebookService
   ) {}
 
   ngOnInit(): void {
@@ -59,8 +63,39 @@ export class DetailComponent implements OnInit, OnDestroy {
         hasIcon: false,
         status: TuiNotification.Success,
         hasCloseButton: true,
-        autoClose: 1500
+        autoClose: 1500,
+        data: 'copy'
       })
+      .subscribe();
+  }
+
+  shareFB(url: string) {
+    const params: UIParams = {
+      href: url,
+      method: 'share'
+    };
+
+    from(this.fbService.ui(params))
+      .pipe(
+        switchMap(() =>
+          this.notificationService.show(this.templateRef, {
+            hasIcon: false,
+            status: TuiNotification.Success,
+            hasCloseButton: true,
+            autoClose: 1500,
+            data: 'fbShare'
+          })
+        ),
+        catchError(() =>
+          this.notificationService.show(this.templateRef, {
+            hasIcon: false,
+            status: TuiNotification.Error,
+            hasCloseButton: true,
+            autoClose: 1500,
+            data: 'fbShareError'
+          })
+        )
+      )
       .subscribe();
   }
 }

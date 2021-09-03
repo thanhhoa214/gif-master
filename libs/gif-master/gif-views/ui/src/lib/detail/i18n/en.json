@@ -1,4 +1,6 @@
 {
   "author": "Author",
-  "uploadedAt": "Uploaded at"
+  "uploadedAt": "Uploaded at",
+  "copyToClipboard": "Copy to clipboard",
+  "shareOnFacebook": "Share on Facebook"
 }

@@ -8,7 +8,17 @@
         size="m"
         appearance="flat"
         icon="tuiIconLinkLarge"
-        (click)="copyLink.emit(gif.url)"
+        (click)="copyLink.emit(currentLocation)"
+        [tuiHint]="'gif_views_ui_detail.copyToClipboard' | transloco"
+      ></button>
+      <button
+        tuiIconButton
+        type="button"
+        size="m"
+        appearance="flat"
+        icon="tuiIconRedoLarge"
+        (click)="share.emit(currentLocation)"
+        [tuiHint]="'gif_views_ui_detail.shareOnFacebook' | transloco"
       ></button>
     </div>
   </h2>

@@ -1,4 +1,3 @@
-import { loader } from './i18n/transloco.loader';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListingComponent } from './/listing.component';
@@ -7,22 +6,13 @@ import { TuiTextfieldControllerModule } from '@taiga-ui/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TuiLazyLoadingModule } from '@taiga-ui/kit';
 import { LanguageModule } from '@shared/language';
-import { TRANSLOCO_SCOPE } from '@ngneat/transloco';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 const tuiModules = [TuiInputModule, TuiTextfieldControllerModule, TuiLazyLoadingModule];
 
 @NgModule({
-  imports: [CommonModule, ReactiveFormsModule, LanguageModule, tuiModules],
+  imports: [CommonModule, InfiniteScrollModule, ReactiveFormsModule, LanguageModule, tuiModules],
   declarations: [ListingComponent],
-  exports: [ListingComponent],
-  providers: [
-    {
-      provide: TRANSLOCO_SCOPE,
-      useValue: {
-        scope: 'listing',
-        loader
-      }
-    }
-  ]
+  exports: [ListingComponent]
 })
 export class UiListingModule {}

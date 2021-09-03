@@ -1,4 +1,14 @@
 {
-  "copiedToClipboard": "Thành công sao chép đường dẫn",
-  "copyLink": "Sao chép đường dẫn"
+  "copy": {
+    "title": "Sao chép đường dẫn",
+    "message": "Thành công sao chép đường dẫn"
+  },
+  "fbShare": {
+    "title": "Chia sẻ Facebook",
+    "message": "Chia sẻ Facebook thành công"
+  },
+  "fbShareError": {
+    "title": "Chia sẻ Facebook",
+    "message": "Chia sẻ Facebook thất bại"
+  }
 }

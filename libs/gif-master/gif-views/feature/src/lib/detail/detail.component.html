@@ -1,11 +1,18 @@
-<gif-master-detail [gif]="gif$ | async" (copyLink)="copyLink($event)"></gif-master-detail>
+<gif-master-detail
+  [gif]="gif$ | async"
+  (copyLink)="copyLink($event)"
+  (share)="shareFB($event)"
+></gif-master-detail>
 
-<ng-template #copied>
-  <section class="flex flex-col">
-    <span>
-      <tui-svg src="tuiIconCheckCircleLarge" class="mr-1"></tui-svg>
-      <b>{{ 'gif_views_feature_detail.copyLink' | transloco }}</b>
-    </span>
-    <span>{{ 'gif_views_feature_detail.copiedToClipboard' | transloco }}</span>
+<ng-template #copied let-data="data">
+  <section class="flex">
+    <tui-svg
+      [src]="data === 'fbShareError' ? 'tuiIconCloseCircleLarge' : 'tuiIconCheckCircleLarge'"
+      class="mr-1"
+    ></tui-svg>
+    <div class="flex flex-col">
+      <b>{{ 'gif_views_feature_detail.' + data + '.title' | transloco }}</b>
+      <span>{{ 'gif_views_feature_detail.' + data + '.message' | transloco }}</span>
+    </div>
   </section>
 </ng-template>

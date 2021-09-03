@@ -5,21 +5,30 @@
   <tui-input [formControl]="searchControl" [tuiTextfieldCleaner]="true" class="w-full mb-6"
     ><b>{{ 'listing.searchPlaceholder' | transloco }}</b></tui-input
   >
-  <div class="gif-card" *ngFor="let gif of gifs">
-    <img
-      [src]="gif.images.fixed_height.url"
-      [alt]="gif.title"
-      (click)="selectGif.emit(gif.id)"
-      loading="lazy"
-    />
-    <section *ngIf="gif.user as user" class="user-info">
-      <img [src]="user.avatar_url" [alt]="user.username" loading="lazy" />
-      <section class="user-detail">
-        <b class="text-gray-500 text-xs">{{ 'listing.title' | transloco }}</b>
-        <small>{{ gif.title }}</small>
-        <b class="text-gray-500 text-xs">{{ 'listing.author' | transloco }}</b>
-        <small>{{ user.display_name }}</small>
+
+  <div
+    infiniteScroll
+    [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="50"
+    (scrolled)="loadMore.emit(searchControl.value)"
+    class="flex flex-wrap justify-between space-x-1 space-y-1"
+  >
+    <div class="gif-card" *ngFor="let gif of gifs">
+      <img
+        [src]="gif.images.fixed_height.url"
+        [alt]="gif.title"
+        (click)="selectGif.emit(gif.id)"
+        loading="lazy"
+      />
+      <section *ngIf="gif.user as user" class="user-info">
+        <img [src]="user.avatar_url" [alt]="user.username" loading="lazy" />
+        <section class="user-detail">
+          <b class="text-gray-500 text-xs">{{ 'listing.title' | transloco }}</b>
+          <small>{{ gif.title }}</small>
+          <b class="text-gray-500 text-xs">{{ 'listing.author' | transloco }}</b>
+          <small>{{ user.display_name }}</small>
+        </section>
       </section>
-    </section>
+    </div>
   </div>
 </div>

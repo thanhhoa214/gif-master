@@ -1,3 +1,7 @@
 {
-  "language": "Ngôn ngữ"
+  "language": "Ngôn ngữ",
+  "downloadMyResume": "Tải CV của tôi",
+  "darkMode": "Chế độ tối",
+  "viewMyLinkedin": "Linkedin của tôi",
+  "viewMyGithub": "Github của tôi"
 }

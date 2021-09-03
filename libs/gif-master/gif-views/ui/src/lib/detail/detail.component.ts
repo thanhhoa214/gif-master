@@ -18,4 +18,7 @@ import { loader } from './i18n/transloco.loader';
 export class DetailComponent {
   @Input() gif: GIFObject | undefined | null;
   @Output() copyLink = new EventEmitter<string>();
+  @Output() share = new EventEmitter<string>();
+
+  currentLocation = location.href;
 }

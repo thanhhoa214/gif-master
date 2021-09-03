@@ -1,4 +1,14 @@
 {
-  "copiedToClipboard": "Link is copied to clipboard",
-  "copyLink": "Copy Link"
+  "copy": {
+    "title": "Copy Link",
+    "message": "Link is copied to clipboard"
+  },
+  "fbShare": {
+    "title": "Share on Facebook",
+    "message": "Link has been shared on Facebook"
+  },
+  "fbShareError": {
+    "title": "Share on Facebook",
+    "message": "Sharing Facebook has been failed"
+  }
 }
