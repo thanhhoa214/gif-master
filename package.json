@@ -34,7 +34,6 @@
     "@taiga-ui/kit": "2.14.0",
     "@tinkoff/ng-dompurify": "3.0.0",
     "dompurify": "2.2.9",
-    "giphy-api": "^2.0.2",
     "ngx-clipboard": "^14.0.1",
     "ngx-facebook": "^3.0.0-0",
     "ngx-infinite-scroll": "^10.0.1",

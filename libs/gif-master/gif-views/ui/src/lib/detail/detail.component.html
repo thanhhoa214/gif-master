@@ -24,20 +24,24 @@
   </h2>
   <img [src]="gif.images.original.url" [alt]="gif.title" class="center-image" />
   <section class="flex justify-between">
-    <section *ngIf="gif.user as user" class="flex items-center my-2 space-x-2">
+    <section class="flex items-center my-2 space-x-2">
       <img
-        [src]="user.avatar_url"
-        [alt]="user.username"
-        [title]="user.username"
+        [src]="gif.user?.avatar_url || 'assets/images/ribbon.svg'"
+        [alt]="gif.user?.username"
+        [title]="gif.user?.username"
         class="rounded-full w-14 h-14"
       />
       <section class="flex flex-col">
         <small class="text-gray-500 leading-6">{{
           'gif_views_ui_detail.author' | transloco
         }}</small>
-        <b class="leading-3">{{ user.display_name }}</b>
-        <a [href]="user.profile_url" target="_blank" class="hover:text-green-600"
-          >@{{ user.username }}</a
+        <b class="leading-3">{{ gif.user?.display_name || 'Anomynous' }}</b>
+        <a
+          *ngIf="gif.user?.profile_url"
+          [href]="gif.user?.profile_url"
+          target="_blank"
+          class="hover:text-green-600"
+          >@{{ gif.user?.username }}</a
         >
       </section>
     </section>

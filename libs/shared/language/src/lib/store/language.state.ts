@@ -17,18 +17,13 @@ export class LanguageState implements NgxsOnInit {
 
   constructor(private transloco: TranslocoService) {}
 
-  ngxsOnInit({ dispatch }: StateContext<LanguageStateModel>) {
-    dispatch(new LoadLanguage('en'));
+  ngxsOnInit({ getState, dispatch }: StateContext<LanguageStateModel>) {
+    dispatch(new LoadLanguage(getState().language ?? 'en'));
   }
 
   @Action(LoadLanguage)
-  loadLanguage(
-    { patchState, getState }: StateContext<LanguageStateModel>,
-    { language }: LoadLanguage
-  ) {
-    if (getState().language === language) return;
+  loadLanguage({ patchState }: StateContext<LanguageStateModel>, { language }: LoadLanguage) {
     this.transloco.setActiveLang(language);
-
     patchState({ language });
   }
 }

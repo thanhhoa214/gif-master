@@ -63,7 +63,7 @@ export class DetailComponent implements OnInit, OnDestroy {
         hasIcon: false,
         status: TuiNotification.Success,
         hasCloseButton: true,
-        autoClose: 1500,
+        autoClose: 2000,
         data: 'copy'
       })
       .subscribe();
@@ -82,7 +82,7 @@ export class DetailComponent implements OnInit, OnDestroy {
             hasIcon: false,
             status: TuiNotification.Success,
             hasCloseButton: true,
-            autoClose: 1500,
+            autoClose: 2000,
             data: 'fbShare'
           })
         ),
@@ -91,7 +91,7 @@ export class DetailComponent implements OnInit, OnDestroy {
             hasIcon: false,
             status: TuiNotification.Error,
             hasCloseButton: true,
-            autoClose: 1500,
+            autoClose: 2000,
             data: 'fbShareError'
           })
         )

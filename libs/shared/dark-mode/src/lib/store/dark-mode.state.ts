@@ -17,14 +17,18 @@ export class DarkModeState implements NgxsOnInit {
 
   constructor(@Inject(DOCUMENT) private document: Document) {}
 
-  ngxsOnInit({ dispatch }: StateContext<StateModel>) {
-    dispatch(new SetMode('auto'));
+  ngxsOnInit({ getState, dispatch }: StateContext<StateModel>) {
+    const darkModePrefer = this.document.defaultView?.matchMedia('(prefers-color-scheme: dark)')
+      .matches
+      ? 'dark'
+      : 'light';
+    dispatch(new SetMode(getState().mode ?? darkModePrefer));
   }
 
   @Action(SetMode)
-  SetMode({ patchState, getState }: StateContext<StateModel>, { mode }: SetMode) {
-    if (getState().mode === mode) return;
-    this.document.body.classList.toggle('dark');
+  SetMode({ patchState }: StateContext<StateModel>, { mode }: SetMode) {
+    if (mode === 'dark') this.document.body.classList.add('dark');
+    else this.document.body.classList.remove('dark');
     patchState({ mode });
   }
 }

@@ -21,6 +21,16 @@
               "apps/gif-master/src/assets",
               {
                 "glob": "**/*",
+                "input": "libs/shared/dark-mode/src/lib/assets",
+                "output": "assets/dark-mode/icons"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/gif-master/ui/src/lib/navbar/assets",
+                "output": "assets/navbar/images"
+              },
+              {
+                "glob": "**/*",
                 "input": "node_modules/@taiga-ui/icons/src",
                 "output": "assets/taiga-ui/icons"
               },

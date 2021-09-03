@@ -4,10 +4,12 @@ import { DarkModeState } from './dark-mode.state';
 import { SetMode } from './dark-mode.actions';
 import { Mode, StateModel } from './dark-mode-state.model';
 import { Subscription } from 'rxjs';
-describe('Language store', () => {
+import { DOCUMENT } from '@angular/common';
+describe('Dark Mode Store', () => {
   let store: Store;
   let actions: Actions;
   let subscription: Subscription;
+  let documentObject: Document;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -16,6 +18,7 @@ describe('Language store', () => {
     store = TestBed.inject(Store);
     actions = TestBed.inject(Actions);
     subscription = new Subscription();
+    documentObject = TestBed.inject(DOCUMENT);
   });
 
   afterEach(() => {
@@ -28,13 +31,19 @@ describe('Language store', () => {
     expect(actual).toEqual(expected);
   });
 
-  it('should change language to Vietnamese [vi]', () => {
-    const expectedMode: Mode = 'auto';
-
+  it(`should change DarkModeState.mode to 'dark'`, () => {
+    const expectedMode: Mode = 'dark';
     subscription = actions.pipe(ofActionSuccessful(SetMode)).subscribe(() => {
       const actualState = store.selectSnapshot(DarkModeState.mode);
       expect(actualState).toEqual(expectedMode);
     });
-    store.dispatch(new SetMode('auto'));
+    store.dispatch(new SetMode('dark'));
+  });
+  it(`should append 'dark' class to body`, () => {
+    const expected = false;
+    subscription = actions.pipe(ofActionSuccessful(SetMode)).subscribe(() => {
+      expect(documentObject.body.classList.contains('dark')).toEqual(expected);
+    });
+    store.dispatch(new SetMode('dark'));
   });
 });

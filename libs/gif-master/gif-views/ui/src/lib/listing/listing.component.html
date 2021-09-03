@@ -11,9 +11,9 @@
     [infiniteScrollDistance]="2"
     [infiniteScrollThrottle]="50"
     (scrolled)="loadMore.emit(searchControl.value)"
-    class="flex flex-wrap justify-between space-x-1 space-y-1"
+    class="flex flex-wrap justify-center"
   >
-    <div class="gif-card" *ngFor="let gif of gifs">
+    <div class="gif-card m-1" *ngFor="let gif of gifs">
       <img
         [src]="gif.images.fixed_height.url"
         [alt]="gif.title"

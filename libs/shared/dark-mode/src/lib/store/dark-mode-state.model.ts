@@ -1,4 +1,4 @@
-export type Mode = 'light' | 'dark' | 'auto';
+export type Mode = 'light' | 'dark';
 
 export interface StateModel {
   mode: Mode;
@@ -6,5 +6,5 @@ export interface StateModel {
 export const STATE_NAME = 'Shared_DarkMode';
 
 export const INITIAL_STATE: StateModel = {
-  mode: 'auto'
+  mode: 'light'
 };

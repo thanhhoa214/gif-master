@@ -1,7 +1,10 @@
 {
   "language": "Language",
   "downloadMyResume": "Download my resumé",
-  "darkMode": "Dark Mode",
+  "mode": {
+    "dark": "Dark Mode",
+    "light": "Light Mode"
+  },
   "viewMyLinkedin": "View my Linkedin",
   "viewMyGithub": "View my Github"
 }
