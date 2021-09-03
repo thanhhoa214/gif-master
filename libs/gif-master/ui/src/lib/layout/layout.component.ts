@@ -1,5 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { AutoTitleService } from '@shared/util';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'gif-master-layout',
@@ -7,9 +6,4 @@ import { AutoTitleService } from '@shared/util';
   styleUrls: ['./layout.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LayoutComponent implements OnInit {
-  constructor(private autoTitle: AutoTitleService) {}
-  ngOnInit(): void {
-    this.autoTitle.setupAutoTitleListener({ postfix: ' | AVC' });
-  }
-}
+export class LayoutComponent {}

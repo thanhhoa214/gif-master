@@ -36,7 +36,7 @@ describe('Language store', () => {
     const expectedLanguage: LanguageCode = 'vi';
 
     subscription = actions.pipe(ofActionSuccessful(LoadLanguage)).subscribe(() => {
-      const actualState = store.selectSnapshot(LanguageState.getLanguage);
+      const actualState = store.selectSnapshot(LanguageState.language);
       expect(actualState).toEqual(expectedLanguage);
     });
     store.dispatch(new LoadLanguage('vi'));

@@ -6,15 +6,12 @@ import { LanguageModule } from '@shared/language';
 
 import { TuiScrollbarModule } from '@taiga-ui/core';
 import { RouterModule } from '@angular/router';
-import { TRANSLOCO_SCOPE } from '@ngneat/transloco';
-import { loader } from './i18n/transloco.loader';
 
 const tuiModules = [TuiScrollbarModule];
 
 @NgModule({
   declarations: [LayoutComponent],
   imports: [CommonModule, NavbarModule, LanguageModule, RouterModule, tuiModules],
-  exports: [LayoutComponent],
-  providers: [{ provide: TRANSLOCO_SCOPE, useValue: { scope: 'layout', loader } }]
+  exports: [LayoutComponent]
 })
 export class LayoutModule {}
