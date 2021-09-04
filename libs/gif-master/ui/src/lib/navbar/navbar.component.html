@@ -27,13 +27,11 @@
       <tui-svg src="assets/navbar/images/github.svg" class="w-8 h-8"></tui-svg>
     </a>
     <a
-      class="text-gray-600 hover:text-gray-900 dark:text-gray-50"
-      href="assets/myCV.pdf"
-      target="_blank"
-      download
-      [tuiHint]="'navbar.downloadMyResume' | transloco"
+      class="text-gray-600 hover:text-gray-900 dark:text-gray-50 cursor-pointer"
+      (click)="openCV()"
+      [tuiHint]="'navbar.viewMyResume' | transloco"
     >
-      <tui-svg src="tuiIconDownloadLarge" class="w-8 h-8"></tui-svg>
+      <tui-svg src="tuiIconAttachLarge" class="w-8 h-8"></tui-svg>
     </a>
   </div>
   <div class="flex items-center justify-end px-4 space-x-2">
@@ -64,3 +62,15 @@
     />
   </div>
 </nav>
+
+<ng-template #pdfViewer let-data="data">
+  <div class="p-4">
+    <h2 class="text-3xl mb-4"><strong>Hoa Nguyen (Rin) Resumé</strong></h2>
+    <ngx-extended-pdf-viewer
+      [src]="data"
+      [useBrowserLocale]="true"
+      height="100%"
+      [delayFirstView]="1000"
+    ></ngx-extended-pdf-viewer>
+  </div>
+</ng-template>
