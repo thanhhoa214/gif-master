@@ -48,6 +48,7 @@ This project was focused on setting up mono-repo infrastructure using [Nx](https
 - Share on Facebook through [ngx-facebook](https://www.npmjs.com/package/ngx-facebook)
 - Copy shareable link to clipboard by [ngx-clipboard](https://www.npmjs.com/package/ngx-clipboard)
 - CI/CD supported by Netlify
+- PDF Viewer supported by [ngx-extended-pdf-viewer](https://www.npmjs.com/package/ngx-extended-pdf-viewer)
 
 ## Deep-dived Libraries
 
@@ -119,6 +120,7 @@ UI library for **gif-master** app only
 - Type: ui
 - Feature:
   - Contains [layout.component.ts](https://github.com/thanhhoa214/gif-master/blob/main/libs/gif-master/ui/src/lib/layout/layout.component.ts), [navbar.component.ts](https://github.com/thanhhoa214/gif-master/blob/main/libs/gif-master/ui/src/lib/navbar/navbar.component.ts)
+  - Open PDF Viewer at [Line 69 navbar.component.ts](https://github.com/thanhhoa214/gif-master/blob/bb3946c5a15d246afca46dd67463d1c921089696/libs/gif-master/ui/src/lib/navbar/navbar.component.html#L69)
 
 ## Future Plan
 
