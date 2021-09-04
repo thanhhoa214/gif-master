@@ -69,8 +69,13 @@
     <ngx-extended-pdf-viewer
       [src]="data"
       [useBrowserLocale]="true"
-      height="100%"
+      [textLayer]="true"
+      height="90vh"
       [delayFirstView]="1000"
+      backgroundColor="#1F2937"
+      [enableDragAndDrop]="false"
+      [showBookmarkButton]="false"
+      [showOpenFileButton]="false"
     ></ngx-extended-pdf-viewer>
   </div>
 </ng-template>
