@@ -9,9 +9,9 @@
       alt="PI EXCHANGE"
       routerLink="/"
     />
-    <b class="text-lg mr-6">PI.EXCHANGE</b>
+    <b class="text-lg hidden sm:inline-block">PI.EXCHANGE</b>
     <a
-      class="mr-4 text-blue-500 hover:text-blue-700 dark:text-gray-50"
+      class="mx-2 sm:mx-4 text-blue-500 hover:text-blue-700 dark:text-gray-50"
       href="https://linkedin.com/in/thanhhoa214"
       target="_blank"
       [tuiHint]="'navbar.viewMyGithub' | transloco"
@@ -19,7 +19,7 @@
       <tui-svg src="assets/navbar/images/linkedin.svg" class="w-8 h-8"></tui-svg>
     </a>
     <a
-      class="mr-4 text-gray-600 hover:text-gray-900 dark:text-gray-50"
+      class="mr-2 sm:mr-4 text-gray-600 hover:text-gray-900 dark:text-gray-50"
       href="https://github.com/thanhhoa214"
       target="_blank"
       [tuiHint]="'navbar.viewMyGithub' | transloco"
@@ -36,14 +36,14 @@
   </div>
   <div class="flex items-center justify-end px-4 space-x-2">
     <ng-container *ngIf="mode$ | async as mode">
-      <span class="hidden md:inline-block">{{ 'navbar.mode.' + mode | transloco }}</span>
+      <span class="hidden sm:inline-block">{{ 'navbar.mode.' + mode | transloco }}</span>
       <tui-svg
         src="assets/dark-mode/icons/{{ mode === 'dark' ? 'moon' : 'sunny' }}.svg"
         class="text-yellow-500 cursor-pointer"
         (click)="toggleMode(mode)"
       ></tui-svg>
     </ng-container>
-    <span class="hidden md:inline-block">{{ 'navbar.language' | transloco }}</span>
+    <span class="hidden sm:inline-block">{{ 'navbar.language' | transloco }}</span>
     <img
       src="assets/navbar/images/vietnam-flag.svg"
       alt="Viet Nam Flag"
