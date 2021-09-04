@@ -1,6 +1,6 @@
 <ng-container *ngIf="gif; else loading">
   <h2 class="text-2xl mb-4 relative">
-    <div class="w-4/5 mx-auto text-center capitalize min-h-[1.5rem]">{{ gif.title }}</div>
+    <div class="capitalize min-h-[1.5rem]">{{ gif.title }}</div>
     <div class="absolute top-1/2 right-0 -translate-y-1/2">
       <button
         tuiIconButton
@@ -20,9 +20,22 @@
         (click)="share.emit(currentLocation)"
         [tuiHint]="'gif_views_ui_detail.shareOnFacebook' | transloco"
       ></button>
+      <a
+        fileSaver
+        [fileName]="gif.title"
+        [url]="gif.images.original.url.replace('media4', 'i')"
+        tuiIconButton
+        type="button"
+        size="m"
+        appearance="flat"
+        icon="tuiIconDownloadLarge"
+        [tuiHint]="'gif_views_ui_detail.download' | transloco"
+      ></a>
     </div>
   </h2>
-  <img [src]="gif.images.original.url" [alt]="gif.title" class="center-image" />
+  <div class="w-full bg-gray-200 dark:bg-gray-700 backdrop-opacity-10 rounded-lg py-2">
+    <img [src]="gif.images.original.url" [alt]="gif.title" class="center-image" />
+  </div>
   <section class="flex justify-between">
     <section class="flex items-center my-2 space-x-2">
       <img
