@@ -1,10 +1,13 @@
 # GifMaster
 
+## Check out the site on https://gifmaster.netlify.com/
+
 This project was focused on setting up mono-repo infrastructure using [Nx](https://nx.dev) for sharing and reusing libraries through Angular best practices collected from my own experiences with the [Giphy-API](https://developers.giphy.com/) demonstration.
 
 ## Table of Contents
 
 - [GifMaster](#gifmaster)
+  - [Check out the site on https://gifmaster.netlify.com/](#check-out-the-site-on-httpsgifmasternetlifycom)
   - [Table of Contents](#table-of-contents)
   - [Technologies](#technologies)
   - [Features Overview](#features-overview)
@@ -42,8 +45,9 @@ This project was focused on setting up mono-repo infrastructure using [Nx](https
 - Strong-typed API thanks to [@types/giphy-api](https://www.npmjs.com/package/@types/giphy-api)
 - List trending gifs with searchable
 - Shareable link by synchronizing displayed UI with URL queryarams
-- Share on Facebook
+- Share on Facebook through [ngx-facebook](https://www.npmjs.com/package/ngx-facebook)
 - Copy shareable link to clipboard by [ngx-clipboard](https://www.npmjs.com/package/ngx-clipboard)
+- CI/CD supported by Netlify
 
 ## Deep-dived Libraries
 
