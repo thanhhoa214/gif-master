@@ -36,14 +36,14 @@
   </div>
   <div class="flex items-center justify-end px-4 space-x-2">
     <ng-container *ngIf="mode$ | async as mode">
-      <span class="hidden sm:inline-block">{{ 'navbar.mode.' + mode | transloco }}</span>
+      <span class="hidden md:inline-block">{{ 'navbar.mode.' + mode | transloco }}</span>
       <tui-svg
         src="assets/dark-mode/icons/{{ mode === 'dark' ? 'moon' : 'sunny' }}.svg"
         class="text-yellow-500 cursor-pointer"
         (click)="toggleMode(mode)"
       ></tui-svg>
     </ng-container>
-    <span class="hidden sm:inline-block">{{ 'navbar.language' | transloco }}</span>
+    <span class="hidden md:inline-block">{{ 'navbar.language' | transloco }}</span>
     <img
       src="assets/navbar/images/vietnam-flag.svg"
       alt="Viet Nam Flag"
