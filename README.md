@@ -136,14 +136,14 @@ UI library for **gif-master** app only
 
 I'm finding a company where I willing dedicate for least 2 years.
 
-- Using Angular
+- Using Angular, Ionic
 - Using English communication
-- Having a roader way to work Singapore
+- Having a broader way to work Singapore
 
 ### Linkedin:
 
 <a href="http://linkedin.com/in/thanhhoa214">Hoa Nguyen (Rin)</a>
 
-### My Resume
+### View my resume
 
-<a href="https://github.com/thanhhoa214/gif-master/raw/main/apps/gif-master/src/assets/myCV.pdf" download>Download my resume</a>
+<a href="https://drive.google.com/file/d/18fkjNGx3Z864OCHw7zUizPg8lo53aimT/view?usp=sharing">View or down my resume on Google Drive</a>
